@@ -1,0 +1,30 @@
+{
+  "name": "hgraca/katas",
+  "description": "A set of katas to practise some coding",
+  "license": "CC",
+  "type": "library",
+  "keywords": [
+    "katas"
+  ],
+  "require": {
+    "php": "^8.3"
+  },
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Hgraca\\Katas\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Hgraca\\Katas\\Test\\": "tests/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
+    },
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  }
+}
