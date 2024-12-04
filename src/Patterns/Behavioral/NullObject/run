@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+
+<?php
+
+require __DIR__ . '/../../../../vendor/autoload.php';
+
+use Hgraca\Katas\Patterns\Behavioral\NullObject\ReportA;
+use Hgraca\Katas\Patterns\Behavioral\NullObject\ReportGenerator;
+use Hgraca\Katas\Patterns\Behavioral\NullObject\ReportX;
+
+$reportGenerator = new ReportGenerator(new ReportA(), new ReportX());
+$reportGenerator->generateReport();
+
+echo "\n\n\n";
+
+$reportGenerator = new ReportGenerator(new ReportA());
+$reportGenerator->generateReport();
