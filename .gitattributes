@@ -1,0 +1,35 @@
+# Auto-detect text files, ensure they use LF.
+* text=auto eol=lf
+
+# These files are always considered text and should use LF.
+# See core.whitespace @ https://git-scm.com/docs/git-config for whitespace flags.
+*.php   text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=4 diff=php
+*.json  text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=4
+*.test  text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=4
+*.yml   text eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,tab-in-indent,tabwidth=2
+
+# Force these files to be treated as binaries
+*.7z binary
+*.doc binary
+*.eot binary
+*.gif binary
+*.jpg binary
+*.pdf binary
+*.png binary
+*.so binary
+*.svg binary
+*.tar.gz binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.zip binary
+*.sqlite binary
+
+# Exclude non-essential files from dist
+/tests              export-ignore
+/.gitlab            export-ignore
+.gitlab-ci.yml      export-ignore
+/docs               export-ignore
+/tests              export-ignore
+.gitattributes      export-ignore
+.gitignore          export-ignore

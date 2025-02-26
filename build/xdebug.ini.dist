@@ -1,0 +1,14 @@
+;zend_extension=xdebug
+
+xdebug.cli_color=1
+xdebug.client_host=host.docker.internal
+xdebug.client_port=9003
+xdebug.discover_client_host=true
+xdebug.idekey=PHPSTORM
+xdebug.log=/app/storage/logs/xdebug.log
+xdebug.log_level=7
+xdebug.mode=debug
+xdebug.output_dir=/app/storage/xdebug
+xdebug.profiler_output_name=cachegrind.out.%p
+xdebug.start_with_request = On
+xdebug.var_display_max_depth=5

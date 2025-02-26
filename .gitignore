@@ -1,7 +1,20 @@
+### GIT ###
+.gitconfig
+
 ### Composer ###
 composer.phar
 composer.lock
 vendor
 
-### Composer ###
+### IDE ###
 .idea
+.vscode
+
+### PROJECT ###
+var
+Makefile.local.mk
+Makefile.vars.local.mk
+build/opcache.ini
+build/php.ini
+build/xdebug.ini
+.env

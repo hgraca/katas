@@ -7,7 +7,7 @@
     "katas"
   ],
   "require": {
-    "php": "^8.3"
+    "php": "^8.2"
   },
   "prefer-stable": true,
   "autoload": {

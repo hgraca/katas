@@ -1,0 +1,22 @@
+services:
+  app:
+    image: hgraca/katas
+    build:
+      dockerfile: ./Dockerfile
+    user: "${UID:-0}:${GID:-0}"
+    command: tail -f /dev/null
+    working_dir: /var/www/html
+    volumes:
+      - ../:/var/www/html:delegated # `delegated`: so the system is faster. When docker container performs changes, host is in read only mode
+      - ~/.composer:/.composer # so we can use the host composer cache
+      - ./opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini # so we can easily change opcache config
+      - ./php.ini:/usr/local/etc/php/conf.d/php.ini # so we can easily change php config
+      - ./xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini # so we can easily change xdebug config
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # So we can use `host.docker.internal` inside the container. Alternatively, with docker: `--add-host=host.docker.internal:host-gateway` @see https://stackoverflow.com/questions/48546124/what-is-linux-equivalent-of-host-docker-internal/67158212#67158212
+    environment:
+      DATE_TIMEZONE: "Europe/Amsterdam"
+      ###> Xdebug ###
+      PHP_IDE_CONFIG: "serverName=katas" # This is needed to debug from CLI (i.e. while running tests)
+      XDEBUG_CONFIG: cli_color=1 client_host=host.docker.internal xdebug.client_port=9003 discover_client_host=false idekey=PHPSTORM log=/var/www/html/var/xdebug.log log_level=7 mode=develop,debug output_dir=/var/www/html/var/xdebug profiler_output_name=cachegrind.out.%p
+      ###< Xdebug ###
